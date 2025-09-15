@@ -1,0 +1,18 @@
+### 회원가입 테스트
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "username": "porin",
+  "password": "1234",
+  "email": "porin@example.com"
+}
+
+### 로그인 테스트
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "username": "porin",
+  "password": "1234"
+}
