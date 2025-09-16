@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class Favorite {
-    private Integer favoriteId;
-    private Integer userId;
-    private String characterName;
-    private LocalDateTime createdAt;
+    private Integer id;
+    private Integer user_id;
+    private String character_name;
+    private LocalDateTime created_at;
 }

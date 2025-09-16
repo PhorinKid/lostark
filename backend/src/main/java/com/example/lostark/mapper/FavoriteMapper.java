@@ -9,7 +9,6 @@ import com.example.lostark.dto.Favorite;
 @Mapper
 public interface FavoriteMapper {
     void insertFavorite(Favorite favorite);
-    void deleteFavorite(Integer userId, String characterName);
     List<Favorite> findByUserId(Integer userId);
-    Favorite findByUserIdAndCharacterName(Integer userId, String characterName);
+    void deleteFavorite(Integer id);
 }
