@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.lostark.mapper.FavoriteMapper">
+
+    <insert id="insertFavorite" parameterType="com.example.lostark.dto.Favorite">
+        INSERT INTO favorite (user_id, character_name)
+        VALUES (#{userId}, #{characterName})
+    </insert>
+
+    <delete id="deleteFavorite">
+        DELETE FROM favorite
+        WHERE user_id = #{userId} AND character_name = #{characterName}
+    </delete>
+
+    <select id="findByUserId" parameterType="int" resultType="com.example.lostark.dto.Favorite">
+        SELECT * FROM favorite
+        WHERE user_id = #{userId}
+    </select>
+
+    <select id="findByUserIdAndCharacterName" parameterType="map" resultType="com.example.lostark.dto.Favorite">
+        SELECT * FROM favorite
+        WHERE user_id = #{userId} AND character_name = #{characterName}
+    </select>
+
+</mapper>

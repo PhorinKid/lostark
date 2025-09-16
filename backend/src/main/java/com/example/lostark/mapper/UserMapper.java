@@ -1,8 +1,8 @@
-package com.example.lostark.repository;
+package com.example.lostark.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.example.lostark.entity.User;
+import com.example.lostark.dto.User;
 
 @Mapper
 public interface UserMapper {

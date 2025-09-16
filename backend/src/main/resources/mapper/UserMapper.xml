@@ -3,19 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.lostark.repository.UserMapper">
-
-    <insert id="insertUser" parameterType="com.example.lostark.entity.User">
+<mapper namespace="com.example.lostark.mapper.UserMapper">
+    <insert id="insertUser" parameterType="com.example.lostark.dto.User">
         INSERT INTO user (username, password, email)
         VALUES (#{username}, #{password}, #{email})
     </insert>
 
-    <select id="findByUsername" parameterType="String" resultType="com.example.lostark.entity.User">
+    <select id="findByUsername" parameterType="String" resultType="com.example.lostark.dto.User">
         SELECT * FROM user WHERE username = #{username}
     </select>
 
-    <select id="findByEmail" parameterType="String" resultType="com.example.lostark.entity.User">
+    <select id="findByEmail" parameterType="String" resultType="com.example.lostark.dto.User">
         SELECT * FROM user WHERE email = #{email}
     </select>
-
 </mapper>

@@ -1,4 +1,4 @@
-package com.example.lostark.entity;
+package com.example.lostark.dto;
 
 import java.time.LocalDateTime;
 

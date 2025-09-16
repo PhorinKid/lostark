@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.lostark.entity.User;
+import com.example.lostark.dto.User;
 import com.example.lostark.service.UserService;
 
 @RestController
@@ -17,12 +17,10 @@ import com.example.lostark.service.UserService;
 public class UserController {
 
     private final UserService userService;
-
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    // 회원가입
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
         try {
@@ -33,16 +31,15 @@ public class UserController {
         }
     }
 
-    // 로그인
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> loginRequest) {
-        try {
-            String token = userService.login(loginRequest.get("username"), loginRequest.get("password"));
+        boolean success = userService.login(loginRequest.get("username"), loginRequest.get("password"));
+        if (success) {
             Map<String, String> response = new HashMap<>();
-            response.put("token", token);
+            response.put("message", "로그인 성공");
             return ResponseEntity.ok(response);
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(401).body(e.getMessage());
+        } else {
+            return ResponseEntity.status(401).body("아이디 또는 비밀번호가 잘못되었습니다.");
         }
     }
 }
